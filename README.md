@@ -21,6 +21,33 @@ Classify different disease based on Xrays! It currently classifies Covid 19, pne
 <b>Don't rename the <code> LossOptimized </code> to anything else otherwise the webapp will give errors!</b>
 
 </li>
+<li>
+<h2>Add Django SECRET_KEY </h2>
+<p>
+Every django app needs a security key to work & when you create a django app by using command line interface it ccomes up with a security key!
+But because this project is public. So, to prevent you guys from hacking (incase you deployed the app using the same security key) I removed the SECRET_KEY!
+Here is how to generate a security key for your app!
+<ol>
+<li>
+In the shell type <code> django-admin shell </code>
+</li>
+<li>
+Now enter the following code <code>
+from django.core.management.utils import get_random_secret_key
+get_random_secret_key()
+</code><br><br>
+It will give an output like this 
+<code>
+'h9&0svk92@fl&=&^)&)02j!#3zqzset%#)e)w9hbarwzvmdapy'
+</code>
 
+In django's settings.py specify it as follow:
+<code>
+SECRET_KEY = "Your random key here"
+</code>
+</li>
+</ol>
+</p>
+</li>
 </ol>
 
