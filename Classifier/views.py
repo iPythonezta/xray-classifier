@@ -23,7 +23,7 @@ def predict_from_symptoms(answers, model=loaded_model):
     chances_y = str(round(model.predict_proba(np.asarray(x[0].values).reshape(1, -1))[0][-1] *100,2)) + '%'
     chances_x = str(round(model.predict_proba(np.asarray(x[0].values).reshape(1, -1))[0][0] *100,2)) + '%'
     if model.predict(np.asarray(x[0].values).reshape(1, -1))[0] == 'Yes':
-        return '<span style="color:red; font-size:30px"><b><i>Covid!</i></b></span><br><b><i>Chances: {}</i></b><br>This Classifier detected that you are Covid Positive <br> But honestly speaking that this classifier is based on old data so it\'s not so caccurate'.format(chances_y)
+        return '<span style="color:red; font-size:30px"><b><i>Covid!</i></b></span><br><b><i>Chances: {}</i></b><br>This Classifier detected that you are Covid Positive <br> But honestly speaking that this classifier is based on old data so it\'s not so accurate'.format(chances_y)
     else:
         return '<span style="color:red; font-size:30px"><b><i>Normal</i></b></span><br><b><i>Chances: {}</i></b><br>This Classifier detected that you are most probably Covid Negative <br> But honestly speaking that this classifier is based on old data so it\'s not so accurate'.format(chances_x)
   
@@ -94,13 +94,12 @@ def image_view(request):
   
         if form.is_valid():
             form.save()
-            return redirect('classifier:solver',request.POST['name'])
+            return redirect('lungs:solver',request.POST['name'])
     else:
         form = ImgForm()
     return render(request, 'Classifier/index.html', {'form' : form})
 
-def success(request):
-    return HttpResponse('successfully uploaded')
+
 
 def solver(request,name):
   

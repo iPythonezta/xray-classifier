@@ -1,0 +1,41 @@
+label {
+    font-size: 1.6em;
+    font-family: Georgia, 'Times New Roman', Times, serif ;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+button {
+    margin: 0 auto;
+    height: 50px;
+    width: fit-content;
+    padding: 20px;
+}
+
+.img {
+  height:220px;
+  overflow:hidden;
+  transition-property: height, border-radius;
+  transition-duration: .5s;
+  transition-timing-function: linear;
+  transition-delay: .5s;
+  border-radius: 0;
+}
+
+.card {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.img:hover{
+height: 250px;
+border-radius: 25px;
+cursor: pointer;
+}
+
+@media (max-width:580px){
+    a.nav-link{
+        margin-top:-5px !important;
+    }
+}

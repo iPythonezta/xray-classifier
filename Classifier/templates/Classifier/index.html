@@ -3,7 +3,7 @@
 <head>
     {% load static %} 
     <meta charset="UTF-8">
-    <title>X ray image</title>
+    <title>X ray Classifier (Image)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <style>
         label {
@@ -24,29 +24,29 @@
 
 </head>
 <body>
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" style="margin-right:50px;">
-            <img src="/media/logo.png">
-            <span class="fs-4">Doctor Robo</span>
-          </a>
-    
-          <ul class="nav nav-pills">
-            <li class="nav-item"><a href="" class="nav-link" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="/covid/xray" class="nav-link active">Covid</a></li>
-            <li class="nav-item"><a href="#" onclick="alert('Coming Soon')" class="nav-link disabled">ECG checker</a></li>
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" style="margin-right:50px;">
+        <img src="/media/logo.png">
+        <span class="fs-4">Doctor Robo</span>
+      </a>
 
-          </ul>
-        </header>
-      </div>
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="" class="nav-link" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/lungs/xray" class="nav-link active">Lung Disease</a></li>
+        <li class="nav-item"><a href="#" onclick="alert('Coming Soon')" class="nav-link disabled">ECG checker</a></li>
 
-      <div class="container" style="margin-bottom: 50px;">
-        <h1 class="text-center" style="margin-bottom: 30px;">Covid Predictor</h1>
-        <nav class="nav nav-pills nav-fill">
-          <a class="nav-link active" aria-current="page" href="/covid/xray">Xray check</a>
-          <a class="nav-link" href="/covid/symptoms">Symptoms Check</a>
-        </nav>
-      </div>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container" style="margin-bottom: 50px;">
+    <h1 class="text-center" style="margin-bottom: 30px;">Lung Disease Predictor</h1>
+    <nav class="nav nav-pills nav-fill">
+      <a class="nav-link  active" aria-current="page" href="/lungs/xray">Xray check</a>
+      <a class="nav-link" href="/covid/symptoms">Symptoms Check (Covid Only)</a>
+    </nav>
+  </div>
 
   
       
