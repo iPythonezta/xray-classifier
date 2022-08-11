@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %} 
+    <meta charset="UTF-8">
+    <title>X ray image</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <style>
+        label {
+            font-size: 1.3em;
+            font-family: Georgia, 'Times New Roman', Times, serif ;
+            font-style: italic;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+            float: none;
+        }
+
+        
+
+        button {
+            display: block;
+            margin: 0 auto;
+            height: 50px;
+            width: fit-content;
+            padding: 20px;
+        }
+        input {
+           
+
+        }
+
+        .design {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          width: 300px;
+          margin: 0 auto;
+          margin-top: 70px;
+        }
+
+        .design:nth-child(even){
+          float: left;
+        }
+
+        .design:nth-child(odd){
+          float: right;
+        }
+
+        .btn-secondary {
+          clear: both;
+          display: block;
+          padding: 20px;
+          font-size: 25px;
+          height: 90px;
+          border-radius: 30px;
+          margin-bottom: 70px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" style="margin-right:50px;">
+            <img src="/media/logo.png">
+            <span class="fs-4">Doctor Robo</span>
+          </a>
+    
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="" class="nav-link" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="/covid/xray" class="nav-link active">Covid</a></li>
+            <li class="nav-item"><a href="#" onclick="alert('Coming Soon')" class="nav-link disabled">ECG checker</a></li>
+
+          </ul>
+        </header>
+      </div>
+
+      <div class="container" style="margin-bottom: 50px;">
+        <h1 class="text-center" style="margin-bottom: 30px;">Covid Predictor</h1>
+        <nav class="nav nav-pills nav-fill">
+          <a class="nav-link" aria-current="page" href="/covid/xray">Xray check</a>
+          <a class="nav-link  active" href="/covid/symptoms">Symptoms Check</a>
+        </nav>
+      </div>
+
+  
+      
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Our ML based Covid Classifier (Symptoms Based)</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>This is our ML based Covid classifer!Just answer a few questions about your health and it will tell you whether you are likely to be Covid Positive or not!!
+                along with the probability of each case!
+                <br>
+                The tool is not 100 % accurrate and as per our advice don't rely solely on it's prediction!
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> I understood!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<div class="container">
+
+      <div class="alert alert-danger d-flex align-items-center" role="alert" style="height: 60px; width: 75%; margin: 0 auto;" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-octagon-fill" viewBox="0 0 16 16" style="margin-right: -300px;">
+            <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>
+        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+        <div>
+          The results of this tool are not very accurrate as it is basedon the data when the covid was very popular. (May 2022)<br> So we recommend using our Xray classifier which is more accurate.<br>
+        </div>
+      </div>
+      
+</div>
+
+<div class="container text-center" style="margin: 20px auto;">
+  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width: 180px;" >
+      About this tool
+    </button></div>
+
+
+    <form method="POST" action="/covid/symptoms">
+      <div class="container text-center">
+        <div class="form-check">
+            {% csrf_token %}
+            <div class="design text-center">
+            <h3>
+                Breathing Problem?
+            </h3>
+            
+            <input class="form-check-input" type="radio"  name="breathing" id="breathing" value="1" required>
+            <label class="form-check-label" for="breathing">
+              Yes
+            </label>
+            <input class="form-check-input" type="radio"  name="breathing" id="breathing1" value="0">
+            <label class="form-check-label" for="breathing1">
+              No
+            </label></div>
+            <div class="design text-center">
+            <h3>
+                Fever
+            </h3>
+            <input class="form-check-input" type="radio"  name="fever" id="fever"  value="1" required>
+            <label class="form-check-label" for="fever">
+              Yes
+            </label>
+            <input class="form-check-input" type="radio"  name="fever" id="fever1"  value="0">
+            <label class="form-check-label" for="fever1">
+              No
+            </label></div>
+            <div class="design text-center">
+            <h3>
+                Dry Cough?
+            </h3>
+            <input class="form-check-input" type="radio"  name="DryCough" id="DryCough1" value="1" required>
+            <label class="form-check-label" for="DryCough1">
+              Yes
+            </label>
+            <input class="form-check-input" type="radio"  name="DryCough" id="DryCough" value="0">
+            <label class="form-check-label" for="DryCough">
+              No
+            </label></div>
+            <div class="design text-center">
+            <h3>
+                Sore throat?
+            </h3>
+            <input class="form-check-input" type="radio"  name="SoreThroat" id="SoreThroat1" value="1" required>
+            <label class="form-check-label" for="SoreThroat1">
+              Yes
+            </label>
+            <input class="form-check-input" type="radio"  name="SoreThroat" id="SoreThroat" value="0">
+            <label class="form-check-label" for="SoreThroat">
+              No
+            </label></div>
+            <div class="design text-center">
+            <h3>
+                Running Nose?
+            </h3>
+            <input class="form-check-input" type="radio"  name="RunningNose" id="RunningNose1" value="1" required>
+            <label class="form-check-label" for="RunningNose1">
+              Yes
+            </label>
+            <input class="form-check-input" type="radio"  name="RunningNose" id="RunningNose" value="0">
+            <label class="form-check-label" for="RunningNose">
+              No
+            </label></div>
+            <div class="design text-center">
+            <h3>
+              Asthma?
+          </h3>
+          <input class="form-check-input" type="radio"  name="Asthma" id="Asthma1" value="1" required>
+          <label class="form-check-label" for="Asthma1">
+            Yes
+          </label>
+          <input class="form-check-input" type="radio"  name="Asthma" id="Asthma" value="0">
+          <label class="form-check-label" for="Asthma">
+            No
+          </label></div>
+          <div class="design text-center">
+          <h3>
+            Headache?
+        </h3>
+        <input class="form-check-input" type="radio"  name="headache" id="headache1" value="1" required>
+        <label class="form-check-label" for="headache1">
+          Yes
+        </label>
+        <input class="form-check-input" type="radio"  name="headache" id="headache" value="0">
+        <label class="form-check-label" for="headache">
+          No
+        </label></div>
+        <div class="design text-center">
+
+        <h3>
+          Fatigue?
+      </h3>
+      <input class="form-check-input" type="radio"  name="Fatigue" id="Fatigue" value="1" required>
+      <label class="form-check-label" for="Fatigue">
+        Yes
+      </label>
+      <input class="form-check-input" type="radio"  name="Fatigue" id="Fatigue1" value="0">
+      <label class="form-check-label" for="Fatigue1">
+        No</div>
+      </label>
+      <div class="design text-center">
+      <h3>
+        GastroIntestinal?
+    </h3>
+    <input class="form-check-input" type="radio"  name="GastroIntestinal" id="GastroIntestinal1" value="1" required>
+    <label class="form-check-label" for="GastroIntestinal1">
+      Yes
+    </label>
+    <input class="form-check-input" type="radio"  name="GastroIntestinal" id="GastroIntestinal" value="0">
+    <label class="form-check-label" for="GastroIntestinal">
+      No
+    </label></div>
+    <div class="design text-center">
+  <h3>
+    Contacted a Covid patient (in last 14 -20 days?)?
+</h3>
+<input class="form-check-input" type="radio"  name="CovidContact" id="CovidContact" value="1" required>
+<label class="form-check-label" for="CovidContact">
+  Yes
+</label>
+<input class="form-check-input" type="radio"  name="CovidContact" id="CovidContact1"  value="0">
+<label class="form-check-label" for="CovidContact1">
+  No
+</label></div>
+<div class="design text-center">
+<h3>
+ Wearing Masks?
+</h3>
+<input class="form-check-input" type="radio"  name="masks" id="masks" value="1" required>
+<label class="form-check-label" for="masks">
+Yes
+</label>
+<input class="form-check-input" type="radio"  name="masks" id="masks1" value="0">
+<label class="form-check-label" for="masks1">
+No
+</label></div>
+
+        </div></div>
+        <button type="submit" class="btn btn-secondary"> Submit!</button>
+    </form>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+</body>
+</html>
