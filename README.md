@@ -110,4 +110,18 @@ The result will look like this: <br> </p>
 <li> Provide references to data you used to create the updated model in commit/pull request description or in README.md file! </li>
 </ol>
 </li>
+
+<li>
+<h2> Creating a new model </h2>
+<p> You can also contribute to the project by creating entirely new models (<b><i> e.g You can create a model to discover tumors in brain using MRIs or a model to find certain internal injuries </i></b>)</p>
+<p><b><i> If you want to contribute in this way follow the following rules before creating a pull request </b></i></p>
+<ol>
+<li> Add a link t the new model in README.md while also wxplaining how to use it </li>
+<li> In the commit/pull request description of the new model like what it does! </li>
+<li>Provide a link to the notebook you used to create the updated model or simply upload the notebook to the repository </li>
+<li> Create a new <b>Django App</b> inside the existing project for your model. You can use this command in the project's root directory <code> django-admin startapp 'app Name here' </code> </li>
+<li> Add a reference to the new django app in the project's settings.py and urls.py </li>
+<li> Provide references to data you used to create the model in commit/pull request description or in README.md file! </li>
+</ol>
+</li>
 </ol>
