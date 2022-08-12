@@ -32,10 +32,11 @@ Here is how to generate a security key for your app!
 In the shell type <code> django-admin shell </code>
 </li>
 <li>
-Now enter the following code <code>
-from django.core.management.utils import get_random_secret_key
-get_random_secret_key()
-</code><br><br>
+Now enter the following code <br> <code>
+from django.core.management.utils import get_random_secret_key</code><br>
+<code>
+get_random_secret_key() </code>
+<br><br>
 It will give an output like this 
 <code>
 'h9&0svk92@fl&=&^)&)02j!#3zqzset%#)e)w9hbarwzvmdapy'
