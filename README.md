@@ -1,6 +1,8 @@
 # Xray Classifier
 Classify different disease based on Xrays! It currently classifies Covid 19, pneumonia and normal lungs with an accurracy of 93.3%
 
+<h3> Installing Required Dependencies </h3>
+<p>First of all install all the required dependencies with <br><code>pip install -r requirements.txt </code></p>
 
 <h1> User Guide </h1>
 
