@@ -85,3 +85,29 @@ The result will look like this: <br> </p>
 </li>
 </ol>
 
+<h1>Contributor's Guide</h1>
+<p>Incase you want to contribute to this project. Read this guide!</p>
+
+<h2> How Can I contribute! </h2>
+<ol>
+<li> 
+<h2>Documentation</h2> 
+<p>You can contribute to the projects documentation by simply writing documentation <b><i> e.g how a function in views.py, urls.py or templates works ...</b></i></p>
+</li>
+<li>
+<h2>Improving ML models </h2>
+<p>You can also contribute by improving the existing ML models in the following ways </p>
+<ul>
+<li>Improve it's accuracy by training on more data or by using a different technique</li>
+<li>You can add more classes to the model. So, it will be able to predict more diseases (e.g If model is currently predicting Pneumonia, Covid and normal classes you can add a class for TB)</li>
+</ul>
+<b><i> If you want to contribute in this way follow the following rules before creating a pull request </b></i>
+<ol>
+<li> Update the link to old model to the link to new model in README.md </li>
+<li> In the commit/pull request description define how the new model is better </li>
+<li>Provide a link to the notebook you used to create the updated model or simply upload the notebook to the repository as well </li>
+<li> Make necessary changes to templates  & views.py for the <b>Updated mode</b></li>
+<li> Provide references to data you used to create the updated model in commit/pull request description or in README.md file! </li>
+</ol>
+</li>
+</ol>
