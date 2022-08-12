@@ -1,0 +1,6 @@
+django
+tensorflow
+pillow
+matplotlib
+pandas
+numpy
