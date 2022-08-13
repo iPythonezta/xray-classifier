@@ -4,3 +4,5 @@ pillow
 matplotlib
 pandas
 numpy
+tweepy
+wget
