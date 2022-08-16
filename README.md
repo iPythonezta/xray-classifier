@@ -24,6 +24,29 @@ Classify different disease based on Xrays! It currently classifies Covid 19, pne
 
 </li>
 <li>
+<h2> Using Twitter Bot </h2>
+<b><i> Follow the steps to setup twitter bot : </i></b>
+<ul>
+<li> Create a twitter developer accounts and get your keys (Consumer key, Consumer_secret, access token , access token secret). You can follow <a href="https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api"> this guide</a> </li>
+<li>
+Now open twitter_bot.py and fill the required fields with your keys
+</li>
+<li>
+Make sure that Machine Learning model is available at <code>Classifier\\trained_models\\LossOptimized</code>
+</li>
+
+<li>
+Open your twitter account and post a tweet like this <code>@XrayBotML checkxray</code> along with an x ray of lungs! <br>
+<b><i>You can change the command <code>@XrayBotML checkxray</code> in the bot file (Open twitter_bot.py and read comments to see how to change it)</i></b>
+
+</li>
+<li>
+Run the file locally and you will see your bot replying to the tweet!
+</li>
+
+</ul>
+</li>
+<li>
 <h2>Add Django SECRET_KEY </h2>
 <p>
 Every django app needs a security key to work & when you create a django app by using command line interface it ccomes up with a security key!
